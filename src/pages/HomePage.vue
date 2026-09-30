@@ -73,6 +73,7 @@
   import {ref,onMounted, computed} from 'vue'
   import {useRouter} from 'vue-router'
   import {v4 as uuidv4} from 'uuid'
+  import { storeToRefs } from 'pinia'
   import {useHomeTempCanvasStore} from '../stores/homeTempCanvasStore'
   import {useCheckGlobalStore} from '../stores/checkGlobalStore'
   import db from '../db/index'
@@ -101,7 +102,7 @@
   const dialogCheckVisible = ref(false)
   const dialogAccountVisible = ref(false)
   
-  const {canvasList, activeCanvasId, isEditMode} = homeStore
+  const {canvasList, activeCanvasId, isEditMode} = storeToRefs(homeStore)
   const activeCanvas = computed(()=> homeStore.getActiveCanvas())
   
   onMounted(async ()=>{
