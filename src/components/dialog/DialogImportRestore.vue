@@ -14,15 +14,15 @@
       <el-form :model="form">
         <el-form-item label="备份文件(.json)">
           <el-button @click="triggerFileSelect">选择json备份文件</el-button>
-          <div v-if="selectedFileName" style="margin‑top:4px">已选：{{selectedFileName}}</div>
+          <div v-if="selectedFileName" style="margin-top:4px">已选：{{selectedFileName}}</div>
           <input ref="fileInputRef" type="file" accept=".json" style="display:none" @change="onFileChange"/>
         </el-form-item>
         <el-form-item label="导入模式">
-          <el-radio‑group v‑model="form.mode">
-            <el‑radio label="merge">合并模式（推荐）</el‑radio>
-            <el‑radio label="overwrite">⚠️覆盖全部现有数据</el‑radio>
-          </el‑radio‑group>
-        </el‑form-item>
+          <el-radio-group v-model="form.mode">
+            <el-radio label="merge">合并模式（推荐）</el-radio>
+            <el-radio label="overwrite">⚠️覆盖全部现有数据</el-radio>
+          </el-radio-group>
+        </el-form-item>
       </el-form>
     
       <template #footer>
@@ -34,17 +34,17 @@
     
     <script setup>
     import { ref, watch } from 'vue'
-    import { ElMessageBox } from 'element‑plus'
+    import { ElMessageBox } from 'element-plus'
     import { readBackupJsonFile, restoreFromBackup } from '../../utils/importRestoreUtil'
     
     const props = defineProps({
       modelValue: { type: Boolean, default: false }
     })
-    const emit = defineEmits(['update:model‑value', 'restore‑done'])
+    const emit = defineEmits(['update:model-value', 'restore-done'])
     
     const visible = ref(false)
     watch(() => props.modelValue, v => visible.value = v)
-    watch(visible, v => emit('update:model‑value', v))
+    watch(visible, v => emit('update:model-value', v))
     
     const fileInputRef = ref(null)
     const selectedFile = ref(null)
@@ -88,7 +88,7 @@
         await restoreFromBackup(backupJson, mode)
         ElMessageBox.alert('✅导入恢复成功！页面会刷新数据', '完成')
         visible.value = false
-        emit('restore‑done')
+        emit('restore-done')
       } catch (err) {
         console.error(err)
         ElMessageBox.alert(`❌导入失败：${err.message}`, '错误', { type: 'error' })

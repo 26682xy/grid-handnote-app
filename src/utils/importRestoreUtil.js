@@ -29,7 +29,7 @@ export function readBackupJsonFile(file) {
  */
 export async function restoreFromBackup(backupJson, mode = 'merge') {
   // 简单校验备份文件标识
-  if (!backupJson?.appName || backupJson.appName !== 'grid‑handnote‑app' || !backupJson.tables) {
+  if (!backupJson?.appName || backupJson.appName !== 'grid-handnote-app' || !backupJson.tables) {
     throw new Error('不是网格手账合法备份文件')
   }
 

@@ -4,7 +4,7 @@
         <h2>网格手账</h2>
         <button @click="handleGlobalReset">全局重置打卡</button>
         <button style="margin-left:8px" @click="exportBackup">导出全部备份</button>
-        <button style="margin‑left:8px" @click="dialogImportVisible = true">导入恢复</button>
+        <button style="margin-left:8px" @click="dialogImportVisible = true">导入恢复</button>
       </header>
   
       <!-- 多草稿Tab栏 -->
@@ -62,7 +62,7 @@
       <!--弹窗组件-->
       <DialogCreateCheck v-model="dialogCheckVisible" @confirm="onCreateCheckConfirm"/>
       <DialogAccountAdd v-model="dialogAccountVisible" @confirm="onAddAccountConfirm"/>
-      <DialogImportRestore v‑model="dialogImportVisible" @restore‑done="onRestoreDone"/>
+      <DialogImportRestore v-model="dialogImportVisible" @restore-done="onRestoreDone"/>
   
       <!--图片上传隐藏input-->
       <input ref="fileInputRef" type="file" accept="image/*" style="display:none" @change="onFileChange"/>

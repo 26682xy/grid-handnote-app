@@ -11,7 +11,7 @@ export async function exportAllDataBackup() {
 
   const backupData = {
     exportTime: new Date().toISOString(),
-    appName: "grid‑handnote‑app",
+    appName: "grid-handnote-app",
     version: "V4",
     tables: {
       checkItemGlobal,
@@ -26,7 +26,7 @@ export async function exportAllDataBackup() {
   const url = URL.createObjectURL(blob)
 
   const a = document.createElement('a')
-  const filename = `grid‑handnote‑backup‑${new Date().toISOString().slice(0,10)}.json`
+  const filename = `grid-handnote-backup-${new Date().toISOString().slice(0,10)}.json`
   a.href = url
   a.download = filename
   document.body.appendChild(a)

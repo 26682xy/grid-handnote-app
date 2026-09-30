@@ -17,7 +17,7 @@
         </div>
       </div>
       <!--弹窗 -->
-<DialogImportRestore v‑model="dialogImportVisible" @restore‑done="onRestoreDone"/>
+<DialogImportRestore v-model="dialogImportVisible" @restore-done="onRestoreDone"/>
     </div>
     </template>
     

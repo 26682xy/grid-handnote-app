@@ -1,7 +1,7 @@
-# grid‑handnote‑app README.md
+# grid-handnote-app README.md
 > 项目名称：网格手账（单机版）
 > 版本：V4 完整实现增强版
-> 技术栈：Vue3 + Vite + Pinia + Vue‑Router + Dexie.js + Capacitor + ECharts + Element‑Plus
+> 技术栈：Vue3 + Vite + Pinia + Vue-Router + Dexie.js + Capacitor + ECharts + Element-Plus
 > 运行形态：网页原型 / Android单机APK，**纯本地单机，无后端、无登录，全部数据存储在本地设备**
 
 ## 📖项目简介
@@ -21,8 +21,8 @@
 ```
 src/
 ├── App.vue                     # 路由出口，无业务逻辑
-├── main.js                     # 项目入口，注册pinia、router、Element‑Plus
-├── router/index.js             # 路由：首页 /notebook‑list /notebook‑view/:id
+├── main.js                     # 项目入口，注册pinia、router、Element-Plus
+├── router/index.js             # 路由：首页 /notebook-list /notebook-view/:id
 ├── db/index.js                 # Dexie数据库表定义
 ├── stores/                     # Pinia状态仓库
 │   ├── homeTempCanvasStore.js  # 首页多临时草稿画布（存储于localStorage）
@@ -37,7 +37,7 @@ src/
 │   ├── CanvasGrid.vue                     # 核心网格画布外层（网格、拖拽吸附、边界校验、动态渲染子组件）
 │   ├── BottomEditToolbar.vue              # 底部分级折叠工具栏
 │   ├── CanvasItem*.vue                    # 全部画布子组件（实时 + 快照两套）
-│   └── dialog/                            # Element‑Plus弹窗组件
+│   └── dialog/                            # Element-Plus弹窗组件
 │       ├── DialogCreateCheck.vue          # 新建打卡弹窗
 │       ├── DialogAccountAdd.vue           # 新增记账弹窗
 │       ├── DialogMonthCheckStatConfig.vue # 月度打卡统计配置弹窗
@@ -75,10 +75,10 @@ npm install
 - `vue3` 前端框架
 - `vite` 构建工具
 - `pinia` 状态管理
-- `vue‑router4` 路由
+- `vue-router4` 路由
 - `dexie` IndexedDB封装数据库
 - `echarts` 饼图报表渲染
-- `element‑plus` UI弹窗表单组件
+- `element-plus` UI弹窗表单组件
 - `uuid` 生成画布元素、业务唯一ID
 - `@capacitor/core`、`@capacitor/filesystem`：安卓原生文件能力
 
@@ -170,7 +170,7 @@ npx cap open android
 
 ## ⚠️已知限制 & 待优化点
 1. **边界限制**：已限制元素不能拖到画布左上(x<0/y<0)，尚未限制向右、向下超出画布边界。
-2. **画布元素ID**：全部画布item生成`_itemId`唯一uuid，解决v‑for渲染闪烁问题。
+2. **画布元素ID**：全部画布item生成`_itemId`唯一uuid，解决v-for渲染闪烁问题。
 3. **贴纸素材**：项目内置贴纸仅为演示占位，需要自行替换真实图片素材。
 4. **图片权限（Android）**：Android13+ Capacitor Filesystem使用私有目录，不需要存储权限；不要使用公共存储。
 5. **ECharts内存**：饼图组件unmount已经调用dispose释放实例，避免内存泄漏。
@@ -182,8 +182,8 @@ npx cap open android
 11. 清除App/浏览器全部数据，所有本地数据会全部丢失，请定期导出JSON备份。
 
 ## 🐛常见问题排查
-1. **页面白屏**：检查Element‑Plus是否正确导入main.js；检查路由配置。
-2. **图片安卓端不显示**：确认执行过`npx cap sync android`；file‑uri图片webview存在限制。
+1. **页面白屏**：检查Element-Plus是否正确导入main.js；检查路由配置。
+2. **图片安卓端不显示**：确认执行过`npx cap sync android`；file-uri图片webview存在限制。
 3. **保存手账本之后，组件数据还会变化**：确认保存时调用`convertCanvasItemsToSnapshot`工具，把实时item全部转为Snapshot快照类型。
 4. 首页草稿丢失：首页临时画布依赖localStorage持久化，清除浏览器缓存会清空草稿；已经保存到手账本的数据存储在Dexie IndexedDB，不受localStorage清除影响。
 5. 打卡、记账新增后界面不更新：确认Pinia store执行了数据库读取刷新`initLoad()`。
@@ -198,7 +198,7 @@ npx cap open android
 - ✅ 8px网格吸附，PC+Touch拖拽缩放
 - ✅ 实时组件 / 快照组件两套实现，数据隔离
 - ✅ 状态隔离：首页临时草稿与手账本互不干扰
-- ✅ Element‑Plus全套业务弹窗，替换原生prompt
+- ✅ Element-Plus全套业务弹窗，替换原生prompt
 - ✅ 画布元素唯一`_itemId`，修复渲染闪烁
 - ✅ 拖拽边界校验，禁止拖出画布左上
 - ✅ JSON业务数据导出备份
