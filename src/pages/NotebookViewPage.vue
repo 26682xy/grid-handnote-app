@@ -66,10 +66,10 @@
     import {handleUploadImageFile} from '../utils/imageFileUtil'
     import CanvasGrid from '../components/CanvasGrid.vue'
     import BottomEditToolbar from '../components/BottomEditToolbar.vue'
-    import DialogCreateCheck from './dialog/DialogCreateCheck.vue'
-    import DialogAccountAdd from './dialog/DialogAccountAdd.vue'
-    import DialogMonthCheckStatConfig from './dialog/DialogMonthCheckStatConfig.vue'
-    import DialogPieConfig from './dialog/DialogPieConfig.vue'
+    import DialogCreateCheck from '../components/dialog/DialogCreateCheck.vue'
+    import DialogAccountAdd from '../components/dialog/DialogAccountAdd.vue'
+    import DialogMonthCheckStatConfig from '../components/dialog/DialogMonthCheckStatConfig.vue'
+    import DialogPieConfig from '../components/dialog/DialogPieConfig.vue'
     
     const route = useRoute()
     const router = useRouter()
